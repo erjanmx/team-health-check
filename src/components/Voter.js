@@ -35,6 +35,10 @@ class Voter extends Component {
   render() {
     return (
       <div className="has-text-centered">
+        <div>
+          <p className="heading">Channel ID</p>
+          <h4 className="title is-2 has-text-centered">{this.state.channelUuid}</h4>
+        </div>
         <h4 className="title is-4">{this.props.channelUuid}</h4>
         <div className="columns" style={{ fontSize: '7em' }}>
           <div className="column">

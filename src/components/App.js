@@ -28,6 +28,7 @@ class App extends Component {
     let container = 
       <form onSubmit={ this.joinChannel }>
         <h4 className="title is-4 has-text-centered">Team health checker</h4>
+        <hr></hr>
         <div className="columns">
           <div className="column">
             <div className="control">
@@ -44,7 +45,7 @@ class App extends Component {
         <div className="field">
           <div className="control">
             <button onClick={(e) => this.setState({ role: 'judge' })} className="button is-fullwidth is-medium">
-              Create new
+              Create
             </button>
           </div>
         </div>
@@ -59,8 +60,12 @@ class App extends Component {
     }
    
     return (
-      <section className="section">
-        { container }
+      <section className="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            { container }
+          </div>
+        </div>
       </section>
     );
   }
