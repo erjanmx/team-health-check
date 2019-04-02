@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Voter extends Component {
   componentDidMount() {
     /*global Ably*/
-    const channel = this.channel = Ably.channels.get("team-health-check-1");
+    const channel = this.channel = Ably.channels.get(this.props.channelUuid);
 
     channel.attach();    
     channel.once("attached", () => {

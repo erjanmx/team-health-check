@@ -8,12 +8,24 @@ class Counter extends Component {
 
     this.state = {
       members: [],
+      channelUuid: null,
     };
   }
 
+  getNewChannelUuid = () => {
+    // 4 digit code
+    const channelUuid = Math.floor(1000 + Math.random() * 9000);
+
+    this.setState({ channelUuid });
+
+    return channelUuid;
+  }
+
   componentDidMount() {
+    const channelUuid = this.getNewChannelUuid();
+
     /*global Ably*/
-    const channel = this.channel = Ably.channels.get("team-health-check-1");
+    const channel = this.channel = Ably.channels.get(channelUuid);
 
     channel.attach();    
 
@@ -51,14 +63,9 @@ class Counter extends Component {
   
   getVoted = () => this.state.members.filter(member => member.vote !== null);
   
-  handleReset = () => this.setState((prevState) => {
-    return {
-      members: prevState.members.map(member => ({
-        id: member.id,
-        vote: null,
-      }))
-    }
-  });
+  handleReset = () => this.setState((prevState) => ({
+    members: prevState.members.map(member => ({ id: member.id, vote: null }))
+  }));
   
   render() {
     return (
@@ -71,6 +78,7 @@ class Counter extends Component {
         <button onClick={ this.handleReset } className="icon is-large">
           reset
         </button>
+        <div>{ this.state.channelUuid }</div>
       </section>
     );
   }
