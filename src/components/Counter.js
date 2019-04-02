@@ -33,7 +33,6 @@ class Counter extends Component {
       if (msg.name !== 'add_vote') {
         return;
       }
-
       const members = this.state.members;
       const ind = _.findIndex(members, { id: msg.connectionId })
 
