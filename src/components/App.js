@@ -9,8 +9,8 @@ class App extends Component {
     this.joinChannel = this.joinChannel.bind(this);
 
     this.state = {
-      role: 'member',
-      channelUuid: '1234',
+      role: '',
+      channelUuid: '',
     };
   }
 
@@ -27,11 +27,12 @@ class App extends Component {
   render() {
     let container = 
       <form onSubmit={ this.joinChannel }>
-        <h4 className="title is-4 has-text-centered">SHC</h4>
+        <h4 className="title is-4 has-text-centered">Team health checker</h4>
+        <hr></hr>
         <div className="columns">
           <div className="column">
             <div className="control">
-                <input type="number" min="0" max="9999" className="input is-rounded" name="channelUuid" placeholder="Channel ID" autoComplete="off"/>
+                <input type="number" autoFocus min="0" max="9999" className="input is-rounded" name="channelUuid" placeholder="Channel ID" autoComplete="off"/>
             </div>
           </div>
           <div className="column">
@@ -44,7 +45,7 @@ class App extends Component {
         <div className="field">
           <div className="control">
             <button onClick={(e) => this.setState({ role: 'judge' })} className="button is-fullwidth is-medium">
-              Create new
+              Create
             </button>
           </div>
         </div>
@@ -59,8 +60,12 @@ class App extends Component {
     }
    
     return (
-      <section className="section">
-        { container }
+      <section className="hero is-fullheight">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            { container }
+          </div>
+        </div>
       </section>
     );
   }
