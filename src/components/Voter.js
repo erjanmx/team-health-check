@@ -17,16 +17,19 @@ class Voter extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={(e) => this.handleVote(1, e)} className="icon is-large">
-          <i className="mdi mdi-36px mdi-thumb-up-outline"></i>
-        </button>
-        <button onClick={(e) => this.handleVote(0, e)} className="icon is-large">
-          <i className="mdi mdi-36px mdi-thumbs-up-down"></i>
-        </button>
-        <button onClick={(e) => this.handleVote(-1, e)} className="icon is-large">
-          <i className="mdi mdi-36px mdi-thumb-down-outline"></i>
-        </button>
+      <div className="has-text-centered">
+        <h4 className="title is-4">{this.props.channelUuid}</h4>
+        <div className="columns" style={{ fontSize: '90px' }}>
+          <div className="column">
+            <i onClick={(e) => this.handleVote(1, e)} class='far fa-smile'></i>
+          </div>
+          <div className="column">
+            <i onClick={(e) => this.handleVote(0, e)} class='far fa-meh'></i>
+          </div>
+          <div className="column" >
+            <i onClick={(e) => this.handleVote(-1, e)} class='far fa-frown'></i>
+          </div>
+        </div>
       </div>
     );
   }

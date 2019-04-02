@@ -55,7 +55,7 @@ class Counter extends Component {
   getResult = () => {
     // do not show until every member votes
     if (this.state.members.length === 0 || this.state.members.length !== this.getVoted().length) {
-      return '';
+      return <i class='far fa-smile'></i>;
     }
     
     return _.minBy(this.state.members, 'vote').vote;
@@ -69,16 +69,37 @@ class Counter extends Component {
   
   render() {
     return (
-      <section className="section">
-        { this.state.members.length }
-        <div></div>
-        { this.getVoted().length }
-        <div></div>
-        {this.getResult() }
-        <button onClick={ this.handleReset } className="icon is-large">
-          reset
-        </button>
-        <div>{ this.state.channelUuid }</div>
+      <section>
+        <nav class="level is-mobile">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Channel ID</p>
+              <h4 className="title is-2 has-text-centered">{this.state.channelUuid}</h4>
+            </div>
+          </div>
+        </nav>
+        <nav class="level is-mobile">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Users</p>
+              <p class="title">{this.state.members.length}</p>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Voted</p>
+              <p class="title">{this.getVoted().length}</p>
+            </div>
+          </div>
+        </nav>
+
+        <div className="has-text-centered" style={{ fontSize: '10em' }}>
+          {this.getResult()}
+        </div>        
+        
+        {this.getResult() ? <button onClick={this.handleReset} className="button is-fullwidth is-medium">
+          Clear
+        </button> : ''}
       </section>
     );
   }

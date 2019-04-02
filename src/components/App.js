@@ -9,13 +9,9 @@ class App extends Component {
     this.joinChannel = this.joinChannel.bind(this);
 
     this.state = {
-      role: null,
-      channelUuid: '',
+      role: 'judge',
+      channelUuid: '1234',
     };
-  }
-
-  handleRole(role) {
-    this.setState({ role })
   }
 
   joinChannel(e) {
@@ -29,44 +25,42 @@ class App extends Component {
   }
 
   render() {
+    let container = 
+      <form onSubmit={ this.joinChannel }>
+        <h4 className="title is-4 has-text-centered">SHC</h4>
+        <div className="columns">
+          <div className="column">
+            <div className="control">
+                <input type="number" min="0" max="9999" className="input is-rounded" name="channelUuid" placeholder="Channel ID" autoComplete="off"/>
+            </div>
+          </div>
+          <div className="column">
+            <div className="control">
+              <button className="button is-fullwidth is-dark is-rounded">Join</button>
+            </div>
+          </div>
+        </div>
+        <h6 className="title is-6 has-text-centered">or</h6>
+        <div className="field">
+          <div className="control">
+            <button onClick={(e) => this.setState({ role: 'judge' })} className="button is-fullwidth is-medium">
+              Create new
+            </button>
+          </div>
+        </div>
+      </form>
+    
     const role = this.state.role;
-    let button;
 
     if (role === 'member') {
-      button = <div>
-        <Voter channelUuid={this.state.channelUuid }/>
-        </div>
+      container = <Voter channelUuid={this.state.channelUuid} />
     } else if (role === 'judge') {
-      button = <Counter />
-    } else {
-      button = <div>
-        <form onSubmit={ this.joinChannel }>
-          <div className="field">
-            <div className="control">
-              <input type="text" className="input" name="channelUuid" placeholder="uuid" />
-            </div>
-          </div>
-          <div className="field">
-            <div className="control">
-              <button className="button is-primary">Join</button>
-            </div>
-          </div>
-        </form>
-        <button onClick={(e) => this.handleRole('judge', e)} className="icon is-large">
-          judge
-        </button>
-      </div>
+      container = <Counter />
     }
    
     return (
       <section className="section">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-half is-offset-one-quarter">
-              { button }
-            </div>
-          </div>
-        </div>
+        { container }
       </section>
     );
   }
