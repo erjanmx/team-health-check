@@ -9,7 +9,7 @@ class App extends Component {
     this.joinChannel = this.joinChannel.bind(this);
 
     this.state = {
-      role: 'judge',
+      role: 'member',
       channelUuid: '1234',
     };
   }

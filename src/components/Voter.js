@@ -19,7 +19,7 @@ class Voter extends Component {
     return (
       <div className="has-text-centered">
         <h4 className="title is-4">{this.props.channelUuid}</h4>
-        <div className="columns" style={{ fontSize: '90px' }}>
+        <div className="columns" style={{ fontSize: '7em' }}>
           <div className="column">
             <i onClick={(e) => this.handleVote(1, e)} class='far fa-smile'></i>
           </div>
