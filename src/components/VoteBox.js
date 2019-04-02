@@ -1,36 +1,30 @@
 import React, { Component } from "react";
 
 class VoteBox extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    /*global Ably*/
+    const channel = this.channel = Ably.channels.get("team-health-check-1");
 
-    this.upVote = this.upVote.bind(this);
-    this.neutralVote = this.neutralVote.bind(this);
-    this.downVote = this.downVote.bind(this);
+    channel.attach();    
+    channel.once("attached", () => {
+      channel.presence.enter();
+    });
   }
 
-  upVote() {
-    this.props.handleVote(1);
-  }
-
-  neutralVote() {
-    this.props.handleVote(0);
-  }
-
-  downVote() {
-    this.props.handleVote(-1);
+  handleVote(vote) {
+    this.channel.publish('add_vote', { vote });
   }
 
   render() {
     return (
       <div>
-        <button onClick={this.upVote} className="icon is-large">
+        <button onClick={(e) => this.handleVote(1, e)} className="icon is-large">
           <i className="mdi mdi-36px mdi-thumb-up-outline"></i>
         </button>
-        <button onClick={this.neutralVote} className="icon is-large">
+        <button onClick={(e) => this.handleVote(0, e)} className="icon is-large">
           <i className="mdi mdi-36px mdi-thumbs-up-down"></i>
         </button>
-        <button onClick={this.downVote} className="icon is-large">
+        <button onClick={(e) => this.handleVote(-1, e)} className="icon is-large">
           <i className="mdi mdi-36px mdi-thumb-down-outline"></i>
         </button>
       </div>
