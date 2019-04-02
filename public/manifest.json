@@ -1,6 +1,6 @@
 {
-  "short_name": "Team Health Check",
-  "name": "Team Health Check",
+  "short_name": "Team Health Checker",
+  "name": "Team Health Checker",
   "icons": [
     {
       "src": "favicon.ico",
