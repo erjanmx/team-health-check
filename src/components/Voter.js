@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class VoteBox extends Component {
+class Voter extends Component {
   componentDidMount() {
     /*global Ably*/
     const channel = this.channel = Ably.channels.get("team-health-check-1");
@@ -32,4 +32,4 @@ class VoteBox extends Component {
   }
 }
 
-export default VoteBox;
+export default Voter;

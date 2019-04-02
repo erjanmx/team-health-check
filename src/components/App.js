@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import VoteBox from "./VoteBox";
+import Voter from "./Voter";
 import Counter from "./Counter";
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
     let button;
 
     if (role === 'member') {
-      button = <VoteBox />
+      button = <Voter />
     } else if (role === 'judge') {
       button = <Counter />
     } else {

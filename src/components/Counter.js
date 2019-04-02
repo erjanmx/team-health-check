@@ -51,6 +51,15 @@ class Counter extends Component {
   
   getVoted = () => this.state.members.filter(member => member.vote !== null);
   
+  handleReset = () => this.setState((prevState) => {
+    return {
+      members: prevState.members.map(member => ({
+        id: member.id,
+        vote: null,
+      }))
+    }
+  });
+  
   render() {
     return (
       <section className="section">
@@ -59,6 +68,9 @@ class Counter extends Component {
         { this.getVoted().length }
         <div></div>
         {this.getResult() }
+        <button onClick={ this.handleReset } className="icon is-large">
+          reset
+        </button>
       </section>
     );
   }
