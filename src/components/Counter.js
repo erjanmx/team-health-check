@@ -30,6 +30,10 @@ class Counter extends Component {
     channel.attach();    
 
     channel.subscribe((msg) => {
+      if (msg.name !== 'add_vote') {
+        return;
+      }
+
       const members = this.state.members;
       const ind = _.findIndex(members, { id: msg.connectionId })
 
@@ -55,40 +59,49 @@ class Counter extends Component {
   getResult = () => {
     // do not show until every member votes
     if (this.state.members.length === 0 || this.state.members.length !== this.getVoted().length) {
-      return <i class='far fa-smile'></i>;
+      return '-';
+    }
+
+    const icons = {
+      '1': <i style={{ color: 'green' }} className='far fa-smile'></i>,
+      '0': <i style={{ color: '#dcdc48' }} className='far fa-meh'></i>,
+      '-1': <i style={{ color: 'red' }} className='far fa-frown'></i>,   
     }
     
-    return _.minBy(this.state.members, 'vote').vote;
+    return icons[_.minBy(this.state.members, 'vote').vote];
   }
   
   getVoted = () => this.state.members.filter(member => member.vote !== null);
   
-  handleReset = () => this.setState((prevState) => ({
-    members: prevState.members.map(member => ({ id: member.id, vote: null }))
-  }));
+  handleReset = () => {
+    this.setState((prevState) => ({
+      members: prevState.members.map(member => ({ id: member.id, vote: null }))
+    }));
+    this.channel.publish('reset', {});
+  }
   
   render() {
     return (
       <section>
-        <nav class="level is-mobile">
-          <div class="level-item has-text-centered">
+        <nav className="level is-mobile">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Channel ID</p>
+              <p className="heading">Channel ID</p>
               <h4 className="title is-2 has-text-centered">{this.state.channelUuid}</h4>
             </div>
           </div>
         </nav>
-        <nav class="level is-mobile">
-          <div class="level-item has-text-centered">
+        <nav className="level is-mobile">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Users</p>
-              <p class="title">{this.state.members.length}</p>
+              <p className="heading">Users</p>
+              <p className="title">{this.state.members.length}</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Voted</p>
-              <p class="title">{this.getVoted().length}</p>
+              <p className="heading">Voted</p>
+              <p className="title">{this.getVoted().length}</p>
             </div>
           </div>
         </nav>
@@ -97,9 +110,9 @@ class Counter extends Component {
           {this.getResult()}
         </div>        
         
-        {this.getResult() ? <button onClick={this.handleReset} className="button is-fullwidth is-medium">
+        <button onClick={this.handleReset} className="button is-fullwidth is-medium">
           Clear
-        </button> : ''}
+        </button>
       </section>
     );
   }
