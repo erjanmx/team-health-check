@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Voter
+    channelUuid={1000}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <ChannelHeader
+            channelUuid={1000}
+          />
+        </div>,
+        <div
+          className="columns"
+          style={
+            Object {
+              "fontSize": "7em",
+            }
+          }
+        >
+          <div
+            className="column"
+            onClick={[Function]}
+          >
+            <Icon
+              isSelected={false}
+              type={1}
+            />
+          </div>
+          <div
+            className="column"
+            onClick={[Function]}
+          >
+            <Icon
+              isSelected={false}
+              type={0}
+            />
+          </div>
+          <div
+            className="column"
+            onClick={[Function]}
+          >
+            <Icon
+              isSelected={false}
+              type={-1}
+            />
+          </div>
+        </div>,
+      ],
+      "className": "has-text-centered",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <ChannelHeader
+            channelUuid={1000}
+          />,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "channelUuid": 1000,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={1}
+              />
+            </div>,
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={0}
+              />
+            </div>,
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={-1}
+              />
+            </div>,
+          ],
+          "className": "columns",
+          "style": Object {
+            "fontSize": "7em",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Icon
+                isSelected={false}
+                type={1}
+              />,
+              "className": "column",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "isSelected": false,
+                "type": 1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Icon
+                isSelected={false}
+                type={0}
+              />,
+              "className": "column",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "isSelected": false,
+                "type": 0,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Icon
+                isSelected={false}
+                type={-1}
+              />,
+              "className": "column",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "isSelected": false,
+                "type": -1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <ChannelHeader
+              channelUuid={1000}
+            />
+          </div>,
+          <div
+            className="columns"
+            style={
+              Object {
+                "fontSize": "7em",
+              }
+            }
+          >
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={1}
+              />
+            </div>
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={0}
+              />
+            </div>
+            <div
+              className="column"
+              onClick={[Function]}
+            >
+              <Icon
+                isSelected={false}
+                type={-1}
+              />
+            </div>
+          </div>,
+        ],
+        "className": "has-text-centered",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <ChannelHeader
+              channelUuid={1000}
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "channelUuid": 1000,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="column"
+                onClick={[Function]}
+              >
+                <Icon
+                  isSelected={false}
+                  type={1}
+                />
+              </div>,
+              <div
+                className="column"
+                onClick={[Function]}
+              >
+                <Icon
+                  isSelected={false}
+                  type={0}
+                />
+              </div>,
+              <div
+                className="column"
+                onClick={[Function]}
+              >
+                <Icon
+                  isSelected={false}
+                  type={-1}
+                />
+              </div>,
+            ],
+            "className": "columns",
+            "style": Object {
+              "fontSize": "7em",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Icon
+                  isSelected={false}
+                  type={1}
+                />,
+                "className": "column",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "isSelected": false,
+                  "type": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Icon
+                  isSelected={false}
+                  type={0}
+                />,
+                "className": "column",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "isSelected": false,
+                  "type": 0,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Icon
+                  isSelected={false}
+                  type={-1}
+                />,
+                "className": "column",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "isSelected": false,
+                  "type": -1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

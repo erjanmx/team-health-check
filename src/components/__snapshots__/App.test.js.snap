@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it matches the snapshot of initial page 1`] = `
+<section
+  className="hero is-fullheight"
+>
+  <div
+    className="hero-body"
+  >
+    <div
+      className="container has-text-centered"
+    >
+      <div
+        className="has-text-centered"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <h4
+            className="title is-4"
+          >
+            Team health checker
+          </h4>
+          <hr />
+          <div
+            className="columns"
+          >
+            <div
+              className="column"
+            >
+              <div
+                className="control"
+              >
+                <input
+                  autoComplete="off"
+                  autoFocus={true}
+                  className="input"
+                  max="9999"
+                  min="1000"
+                  name="channelUuid"
+                  placeholder="Channel ID"
+                  type="number"
+                />
+              </div>
+            </div>
+            <div
+              className="column"
+            >
+              <div
+                className="control"
+              >
+                <button
+                  className="button is-fullwidth is-dark"
+                >
+                  Join
+                </button>
+              </div>
+            </div>
+          </div>
+          <h6
+            className="title is-6"
+          >
+            or
+          </h6>
+          <div
+            className="field"
+          >
+            <div
+              className="control"
+            >
+              <button
+                className="button is-fullwidth is-medium"
+                onClick={[Function]}
+              >
+                Create
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+`;

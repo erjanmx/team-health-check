@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Icon from "./Icon";
+import ChannelHeader from "./ChannelHeader";
+import Ably from './../ably';
 
 const _ = require('lodash');
 
@@ -8,31 +11,27 @@ class Counter extends Component {
 
     this.state = {
       members: [],
-      channelUuid: null,
     };
   }
 
-  getNewChannelUuid = () => {
-    // 4 digit code
-    const channelUuid = Math.floor(1000 + Math.random() * 9000);
-
-    this.setState({ channelUuid });
-
-    return channelUuid;
-  }
+  getVotedMembers = () => this.state.members.filter(member => member.vote !== null);
 
   componentDidMount() {
-    const channelUuid = this.getNewChannelUuid();
+    this.setupChannel();
+  }
 
-    /*global Ably*/
-    const channel = this.channel = Ably.channels.get(channelUuid);
+  setupChannel() {
+    this.channel = Ably.channels.get(this.props.channelUuid);
 
-    channel.attach();    
+    this.channel.attach();
+    this.channel.subscribe((msg) => this.handleSubscribe(msg));
+    this.channel.presence.subscribe(() => this.channel.presence.get((e, members) => this.updateMembers(members)));
 
-    channel.subscribe((msg) => {
-      if (msg.name !== 'add_vote') {
-        return;
-      }
+    this.resetVotes();
+  }
+
+  handleSubscribe(msg) {
+    if (msg.name === 'add_vote') {
       const members = this.state.members;
       const ind = _.findIndex(members, { id: msg.connectionId })
 
@@ -40,54 +39,41 @@ class Counter extends Component {
         members[ind].vote = msg.data.vote;
         this.setState({ members });
       }
-    });
-
-    channel.presence.subscribe(() => {
-      channel.presence.get((err, presentMembers) => {
-        const members = presentMembers.map(member => ({        
-          id: member.connectionId,
-          // preserve previous users' votes
-          vote: _.get(_.find(this.state.members, { id: member.connectionId }), 'vote', null),
-        }));
-
-        this.setState({ members });        
-      });
-    });
+    } else if (msg.name === 'reset') {
+      this.setState((prevState) => ({
+        members: prevState.members.map(member => ({ id: member.id, vote: null }))
+      }));
+    }
   }
 
-  getResult = () => {
-    // do not show until every member votes
-    if (this.state.members.length === 0 || this.state.members.length !== this.getVoted().length) {
-      return '-';
-    }
-
-    const icons = {
-      '1': <i style={{ color: 'green' }} className='far fa-smile'></i>,
-      '0': <i style={{ color: '#dcdc48' }} className='far fa-meh'></i>,
-      '-1': <i style={{ color: 'red' }} className='far fa-frown'></i>,   
-    }
-    
-    return icons[_.minBy(this.state.members, 'vote').vote];
-  }
-  
-  getVoted = () => this.state.members.filter(member => member.vote !== null);
-  
-  handleReset = () => {
-    this.setState((prevState) => ({
-      members: prevState.members.map(member => ({ id: member.id, vote: null }))
+  updateMembers(presentMembers) {
+    const members = presentMembers.map(member => ({
+      id: member.connectionId,
+      // preserve previous users' votes
+      vote: _.get(_.find(this.state.members, { id: member.connectionId }), 'vote', null),
     }));
+
+    this.setState({ members });   
+  }
+  
+  resetVotes = () => {
     this.channel.publish('reset', {});
   }
-  
+
   render() {
+    let result = '-';
+
+    // show only when every member has voted
+    if (this.state.members.length > 0 && this.state.members.length === this.getVotedMembers().length) {
+      const vote = _.minBy(this.state.members, 'vote').vote;
+      result = <Icon type={vote} />
+    }
+
     return (
       <section>
         <nav className="level is-mobile">
           <div className="level-item has-text-centered">
-            <div>
-              <p className="heading">Channel ID</p>
-              <h4 className="title is-2 has-text-centered">{this.state.channelUuid}</h4>
-            </div>
+            <ChannelHeader channelUuid={this.props.channelUuid} />
           </div>
         </nav>
         <nav className="level is-mobile">
@@ -100,16 +86,16 @@ class Counter extends Component {
           <div className="level-item has-text-centered">
             <div>
               <p className="heading">Voted</p>
-              <p className="title">{this.getVoted().length}</p>
+              <p className="title">{this.getVotedMembers().length}</p>
             </div>
           </div>
         </nav>
 
-        <div className="has-text-centered" style={{ fontSize: '10em' }}>
-          {this.getResult()}
+        <div className="result has-text-centered" style={{ fontSize: '10em' }}>
+          {result}
         </div>        
         
-        <button onClick={this.handleReset} className="button is-fullwidth is-medium">
+        <button onClick={this.resetVotes} className="button is-fullwidth is-medium">
           Clear
         </button>
       </section>
