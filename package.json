@@ -2,6 +2,7 @@
   "name": "team-health-check",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://erjanmx.github.io/team-health-check",
   "dependencies": {
     "ably": "^1.1.7",
     "gh-pages": "^2.0.1",
