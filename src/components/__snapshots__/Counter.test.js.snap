@@ -1,0 +1,703 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Counter
+    channelUuid={1000}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <nav
+          className="level is-mobile"
+        >
+          <div
+            className="level-item has-text-centered"
+          >
+            <ChannelHeader
+              channelUuid={1000}
+            />
+          </div>
+        </nav>,
+        <nav
+          className="level is-mobile"
+        >
+          <div
+            className="level-item has-text-centered"
+          >
+            <div>
+              <p
+                className="heading"
+              >
+                Users
+              </p>
+              <p
+                className="title"
+              >
+                0
+              </p>
+            </div>
+          </div>
+          <div
+            className="level-item has-text-centered"
+          >
+            <div>
+              <p
+                className="heading"
+              >
+                Voted
+              </p>
+              <p
+                className="title"
+              >
+                0
+              </p>
+            </div>
+          </div>
+        </nav>,
+        <div
+          className="result has-text-centered"
+          style={
+            Object {
+              "fontSize": "10em",
+            }
+          }
+        >
+          -
+        </div>,
+        <button
+          className="button is-fullwidth is-medium"
+          onClick={[Function]}
+        >
+          Clear
+        </button>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="level-item has-text-centered"
+          >
+            <ChannelHeader
+              channelUuid={1000}
+            />
+          </div>,
+          "className": "level is-mobile",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <ChannelHeader
+              channelUuid={1000}
+            />,
+            "className": "level-item has-text-centered",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "channelUuid": 1000,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        "type": "nav",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="level-item has-text-centered"
+            >
+              <div>
+                <p
+                  className="heading"
+                >
+                  Users
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>
+            </div>,
+            <div
+              className="level-item has-text-centered"
+            >
+              <div>
+                <p
+                  className="heading"
+                >
+                  Voted
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>
+            </div>,
+          ],
+          "className": "level is-mobile",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div>
+                <p
+                  className="heading"
+                >
+                  Users
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>,
+              "className": "level-item has-text-centered",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="heading"
+                  >
+                    Users
+                  </p>,
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Users",
+                    "className": "heading",
+                  },
+                  "ref": null,
+                  "rendered": "Users",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 0,
+                    "className": "title",
+                  },
+                  "ref": null,
+                  "rendered": 0,
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div>
+                <p
+                  className="heading"
+                >
+                  Voted
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>,
+              "className": "level-item has-text-centered",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p
+                    className="heading"
+                  >
+                    Voted
+                  </p>,
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Voted",
+                    "className": "heading",
+                  },
+                  "ref": null,
+                  "rendered": "Voted",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 0,
+                    "className": "title",
+                  },
+                  "ref": null,
+                  "rendered": 0,
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "nav",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "-",
+          "className": "result has-text-centered",
+          "style": Object {
+            "fontSize": "10em",
+          },
+        },
+        "ref": null,
+        "rendered": "-",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Clear",
+          "className": "button is-fullwidth is-medium",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Clear",
+        "type": "button",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <nav
+            className="level is-mobile"
+          >
+            <div
+              className="level-item has-text-centered"
+            >
+              <ChannelHeader
+                channelUuid={1000}
+              />
+            </div>
+          </nav>,
+          <nav
+            className="level is-mobile"
+          >
+            <div
+              className="level-item has-text-centered"
+            >
+              <div>
+                <p
+                  className="heading"
+                >
+                  Users
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+            <div
+              className="level-item has-text-centered"
+            >
+              <div>
+                <p
+                  className="heading"
+                >
+                  Voted
+                </p>
+                <p
+                  className="title"
+                >
+                  0
+                </p>
+              </div>
+            </div>
+          </nav>,
+          <div
+            className="result has-text-centered"
+            style={
+              Object {
+                "fontSize": "10em",
+              }
+            }
+          >
+            -
+          </div>,
+          <button
+            className="button is-fullwidth is-medium"
+            onClick={[Function]}
+          >
+            Clear
+          </button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="level-item has-text-centered"
+            >
+              <ChannelHeader
+                channelUuid={1000}
+              />
+            </div>,
+            "className": "level is-mobile",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <ChannelHeader
+                channelUuid={1000}
+              />,
+              "className": "level-item has-text-centered",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "channelUuid": 1000,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": "div",
+          },
+          "type": "nav",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="level-item has-text-centered"
+              >
+                <div>
+                  <p
+                    className="heading"
+                  >
+                    Users
+                  </p>
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>
+                </div>
+              </div>,
+              <div
+                className="level-item has-text-centered"
+              >
+                <div>
+                  <p
+                    className="heading"
+                  >
+                    Voted
+                  </p>
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>
+                </div>
+              </div>,
+            ],
+            "className": "level is-mobile",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p
+                    className="heading"
+                  >
+                    Users
+                  </p>
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>
+                </div>,
+                "className": "level-item has-text-centered",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="heading"
+                    >
+                      Users
+                    </p>,
+                    <p
+                      className="title"
+                    >
+                      0
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Users",
+                      "className": "heading",
+                    },
+                    "ref": null,
+                    "rendered": "Users",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 0,
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": 0,
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div>
+                  <p
+                    className="heading"
+                  >
+                    Voted
+                  </p>
+                  <p
+                    className="title"
+                  >
+                    0
+                  </p>
+                </div>,
+                "className": "level-item has-text-centered",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p
+                      className="heading"
+                    >
+                      Voted
+                    </p>,
+                    <p
+                      className="title"
+                    >
+                      0
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Voted",
+                      "className": "heading",
+                    },
+                    "ref": null,
+                    "rendered": "Voted",
+                    "type": "p",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 0,
+                      "className": "title",
+                    },
+                    "ref": null,
+                    "rendered": 0,
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+          ],
+          "type": "nav",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "-",
+            "className": "result has-text-centered",
+            "style": Object {
+              "fontSize": "10em",
+            },
+          },
+          "ref": null,
+          "rendered": "-",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Clear",
+            "className": "button is-fullwidth is-medium",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Clear",
+          "type": "button",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+  Symbol(enzyme.__childContext__): null,
+}
+`;

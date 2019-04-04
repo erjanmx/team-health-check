@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import Icon from './Icon';
+import ChannelHeader from './ChannelHeader';
+
+import Ably from './../ably';
 
 class Voter extends Component {
   constructor(props) {
     super(props);
 
     this.handleVote = this.handleVote.bind(this);
+    this.handleSubscribe = this.handleSubscribe.bind(this);
 
     this.state = {
       vote: null,
@@ -12,19 +17,21 @@ class Voter extends Component {
   }
 
   componentDidMount() {
-    /*global Ably*/
-    const channel = this.channel = Ably.channels.get(this.props.channelUuid);
+    this.setupChannel();
+  }
 
-    channel.attach();    
-    channel.once("attached", () => {
-      channel.presence.enter();
-    });
+  setupChannel = () => {
+    this.channel = Ably.channels.get(this.props.channelUuid);
 
-    channel.subscribe((msg) => {
-      if (msg.name === 'reset') {
-        this.setState({ vote: null });
-      }
-    });
+    this.channel.attach();
+    this.channel.subscribe((msg) => this.handleSubscribe(msg));
+    this.channel.once("attached", () => this.channel.presence.enter());
+  }
+
+  handleSubscribe(msg) {
+    if (msg.name === 'reset') {
+      this.setState({ vote: null });
+    }
   }
 
   handleVote(vote) {
@@ -36,19 +43,17 @@ class Voter extends Component {
     return (
       <div className="has-text-centered">
         <div>
-          <p className="heading">Channel ID</p>
-          <h4 className="title is-2 has-text-centered">{this.state.channelUuid}</h4>
+          <ChannelHeader channelUuid={this.props.channelUuid} />
         </div>
-        <h4 className="title is-4">{this.props.channelUuid}</h4>
         <div className="columns" style={{ fontSize: '7em' }}>
-          <div className="column">
-            <i onClick={(e) => this.handleVote(1, e)} style={{ color: 'green' }} className={this.state.vote === 1 ? 'fas fa-smile' : 'far fa-smile'}></i>
+          <div className="column" onClick={(e) => this.handleVote(1, e)} >
+            <Icon type={1} isSelected={this.state.vote === 1} />
           </div>
-          <div className="column">
-            <i onClick={(e) => this.handleVote(0, e)} style={{ color: '#dcdc48' }} className={this.state.vote === 0 ? 'fas fa-meh' : 'far fa-meh'}></i>
+          <div className="column" onClick={(e) => this.handleVote(0, e)} >
+            <Icon type={0} isSelected={this.state.vote === 0} />
           </div>
-          <div className="column" >
-            <i onClick={(e) => this.handleVote(-1, e)} style={{ color: 'red' }}  className={this.state.vote === -1 ? 'fas fa-frown' : 'far fa-frown'}></i>
+          <div className="column" onClick={(e) => this.handleVote(-1, e)} >
+            <Icon type={-1} isSelected={this.state.vote === -1} />
           </div>
         </div>
       </div>

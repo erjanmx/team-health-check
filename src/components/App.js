@@ -1,68 +1,44 @@
 import React, { Component } from "react";
+import Main from "./Main";
 import Voter from "./Voter";
 import Counter from "./Counter";
+
+const _ = require('lodash');
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.joinChannel = this.joinChannel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       role: '',
-      channelUuid: '',
+      channelUuid: _.random(1000, 9999),
     };
   }
 
-  joinChannel(e) {
-    e.preventDefault();
-
-    const channelUuid = e.target.elements.channelUuid.value.trim();
-
-    if (channelUuid) {
-      this.setState({ role: 'member', channelUuid: channelUuid });
-    }
+  handleChange(state) {
+    this.setState(state);
   }
 
   render() {
-    let container = 
-      <form onSubmit={ this.joinChannel }>
-        <h4 className="title is-4 has-text-centered">Team health checker</h4>
-        <hr></hr>
-        <div className="columns">
-          <div className="column">
-            <div className="control">
-                <input type="number" autoFocus min="0" max="9999" className="input is-rounded" name="channelUuid" placeholder="Channel ID" autoComplete="off"/>
-            </div>
-          </div>
-          <div className="column">
-            <div className="control">
-              <button className="button is-fullwidth is-dark is-rounded">Join</button>
-            </div>
-          </div>
-        </div>
-        <h6 className="title is-6 has-text-centered">or</h6>
-        <div className="field">
-          <div className="control">
-            <button onClick={(e) => this.setState({ role: 'judge' })} className="button is-fullwidth is-medium">
-              Create
-            </button>
-          </div>
-        </div>
-      </form>
-    
-    const role = this.state.role;
+    let container;
 
-    if (role === 'member') {
-      container = <Voter channelUuid={this.state.channelUuid} />
-    } else if (role === 'judge') {
-      container = <Counter />
+    switch(this.state.role) {
+      case 'voter':
+        container = <Voter channelUuid={this.state.channelUuid} />
+        break;
+      case 'counter':
+        container = <Counter channelUuid={this.state.channelUuid} />
+        break;
+      default:
+        container = <Main handleChange={this.handleChange}/>
     }
-   
+
     return (
       <section className="hero is-fullheight">
-        <div class="hero-body">
-          <div class="container has-text-centered">
+        <div className="hero-body">
+          <div className="container has-text-centered">
             { container }
           </div>
         </div>
